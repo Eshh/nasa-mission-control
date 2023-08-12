@@ -2,7 +2,7 @@
 const http = require("http");
 // custom imports
 const app = require("./app");
-
+const { loadPlanetsData } = require("./models/planets.model");
 // global variables
 const PORT = process.env.PORT || 5000;
 
@@ -10,4 +10,6 @@ const PORT = process.env.PORT || 5000;
 const server = http.createServer(app);
 
 // server spin
-server.listen(PORT, () => console.log(`Node server listening on ${PORT}`));
+loadPlanetsData().then(() => {
+  server.listen(PORT, () => console.log(`Node server listening on ${PORT}`));
+});
