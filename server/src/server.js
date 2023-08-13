@@ -10,6 +10,9 @@ const PORT = process.env.PORT || 5000;
 const server = http.createServer(app);
 
 // server spin
-loadPlanetsData().then(() => {
+async function startServer() {
+  await loadPlanetsData();
   server.listen(PORT, () => console.log(`Node server listening on ${PORT}`));
-});
+}
+
+startServer();

@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, "..", "public")));
 
 // end point handlers
 app.use("/planets", planetsRouter);
-app.use(launchesRouter);
+app.use("/launches", launchesRouter);
 // client end
 app.get("/*", (req, res) =>
   res.sendFile(path.join(__dirname, "..", "public", "index.html"))
