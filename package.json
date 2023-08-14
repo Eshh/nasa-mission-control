@@ -11,6 +11,7 @@
     "client": "npm start --prefix client",
     "watch": "npm run server & npm run client",
     "deploy": "npm run build --prefix client && npm start --prefix server",
+    "deploy-cluster": "npm run build --prefix client && npm deploy --prefix cluster",
     "test": "npm test --prefix server && npm test --prefix client"
   },
   "repository": {
@@ -23,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/Eshh/nasa-mission-control/issues"
   },
-  "homepage": "https://github.com/Eshh/nasa-mission-control#readme"
+  "homepage": "https://github.com/Eshh/nasa-mission-control#readme",
+  "dependencies": {
+    "pm2": "^5.3.0"
+  }
 }
