@@ -1,4 +1,4 @@
-const launches = new Map();
+const { launcheModel } = require("./launches.mongo");
 let latestFlightNumber = 100;
 
 function existsLaunch(id) {
