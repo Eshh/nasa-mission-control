@@ -24,6 +24,7 @@ const launchSchema = new mongoose.Schema({
   customers: {
     type: [String],
     required: false,
+    default: ["NASA", "SPACEx"],
   },
   upcoming: {
     type: Boolean,
@@ -37,7 +38,7 @@ const launchSchema = new mongoose.Schema({
 });
 
 // launches colelction
-const launcheModel = mongoose.model("Launch", launchSchema);
+const launchesModel = mongoose.model("Launch", launchSchema);
 module.exports = {
-  launcheModel,
+  launchesModel,
 };

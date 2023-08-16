@@ -37,7 +37,7 @@ function isHabitablePlanet(planet) {
 }
 
 async function getAllPlanets() {
-  return await planetsModel.find({});
+  return await planetsModel.find({}, { _id: 0, _v: 0 });
 }
 
 async function savePlanet(planet) {
