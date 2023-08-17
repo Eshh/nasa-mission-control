@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --detectOpenHandles",
     "test-watch": "jest --watch",
     "watch": "nodemon src/server.js",
     "start": "node src/server.js",
@@ -25,5 +25,8 @@
   },
   "devDependencies": {
     "jest": "^29.6.2"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
