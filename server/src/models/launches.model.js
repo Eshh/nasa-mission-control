@@ -4,8 +4,8 @@ launches = new Map();
 
 const DEFAULT_FLIGHT_NUMBER = 100;
 
-function existsLaunch(id) {
-  return launches.has(id);
+async function existsLaunch(id) {
+  return await launchesModel.findOne({ flightNumber: id });
 }
 async function getAllLaunches() {
   return await launchesModel.find({}, { _id: 0, __v: 0 });
@@ -22,11 +22,13 @@ async function addNewLaunch(launch) {
   await saveLaunch(newLaunch);
 }
 
-function abortLaunchById(id) {
-  const aborted = launches.get(id);
-  aborted.success = false;
-  aborted.upcoming = false;
-  return aborted;
+async function abortLaunchById(id) {
+  const aborted = await launchesModel.updateOne(
+    { flightNumber: id },
+    { upcoming: false, sucess: "false" }
+  );
+  console.log(aborted);
+  return aborted.modifiedCount == 1;
 }
 
 async function saveLaunch(launch) {
@@ -36,7 +38,7 @@ async function saveLaunch(launch) {
   if (!planet) {
     throw new Error("No Planet found");
   }
-  await launchesModel.updateOne(
+  await launchesModel.findOneAndUpdate(
     {
       flightNumber: launch.flightNumber,
     },

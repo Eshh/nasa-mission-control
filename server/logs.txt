@@ -22,3 +22,15 @@ Node server listening on 5000
 Node server listening on 5000
 8 habitable planets found
 Node server listening on 5000
+Mongoose connected
+Mongoose connected
+Mongoose connected
+8 habitable planets found
+Node server listening on 5000
+8 habitable planets found
+Node server listening on 5000
+Mongoose connected
+8 habitable planets found
+Node server listening on 5000
+8 habitable planets found
+Node server listening on 5000
