@@ -25,9 +25,8 @@ async function addNewLaunch(launch) {
 async function abortLaunchById(id) {
   const aborted = await launchesModel.updateOne(
     { flightNumber: id },
-    { upcoming: false, sucess: "false" }
+    { upcoming: false, sucess: false }
   );
-  console.log(aborted);
   return aborted.modifiedCount == 1;
 }
 
@@ -49,7 +48,6 @@ async function saveLaunch(launch) {
 
 async function getLatestFlightNumber() {
   const latestLaunch = await launchesModel.findOne({}).sort("-flightNumber");
-  console.log(latestLaunch, "console");
   return latestLaunch.flightNumber || DEFAULT_FLIGHT_NUMBER;
 }
 

@@ -6,7 +6,10 @@ describe("Testing launches api", () => {
   beforeAll(async () => await connectToMongo());
   describe("get launches api", () => {
     test("It shouldrespond with 200", async () => {
-      await st(app).get("/launches").expect(200).expect("Content-Type", /json/);
+      await st(app)
+        .get("/v1/launches")
+        .expect(200)
+        .expect("Content-Type", /json/);
       // expect(res.statusCode).toBe(200);
     });
   });
@@ -32,7 +35,7 @@ describe("Testing launches api", () => {
     // using super test
     test("It should respond with 201 created", async () => {
       const res = await st(app)
-        .post("/launches")
+        .post("/v1/launches")
         .send(testLaunch)
         .expect(201)
         .expect("Content-Type", /json/);
@@ -46,7 +49,7 @@ describe("Testing launches api", () => {
     });
     test("It should catch missing properties error", async () => {
       const res = await st(app)
-        .post("/launches")
+        .post("/v1/launches")
         .send(testLaunchWithoutDate)
         .expect(400);
 
@@ -54,7 +57,7 @@ describe("Testing launches api", () => {
     });
     test("It should catch invalid date error", async () => {
       const res = await st(app)
-        .post("/launches")
+        .post("/v1//launches")
         .send(testLaunchWithInvalidDate)
         .expect(400);
 

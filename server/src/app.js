@@ -4,8 +4,7 @@ const path = require("path");
 const morgan = require("morgan");
 
 //router groups
-const planetsRouter = require("./routes/planets/planets.router");
-const launchesRouter = require("./routes/launches/launches.router");
+const api = require("./routes/api-v1");
 
 const app = express();
 
@@ -22,8 +21,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "..", "public")));
 
 // end point handlers
-app.use("/planets", planetsRouter);
-app.use("/launches", launchesRouter);
+app.use("/v1", api);
 // client end
 app.get("/*", (req, res) =>
   res.sendFile(path.join(__dirname, "..", "public", "index.html"))
