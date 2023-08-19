@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const { launchesModel } = require("./launches.mongo");
+const { launchesModel } = require("./launches.mongo.js");
 const planetsModel = require("./planets.mongo");
 launches = new Map();
 
@@ -9,8 +9,12 @@ const DEFAULT_FLIGHT_NUMBER = 100;
 async function existsLaunch(id) {
   return await findLaunch({ flightNumber: id });
 }
-async function getAllLaunches() {
-  return await launchesModel.find({}, { _id: 0, __v: 0 });
+async function getAllLaunches(skip, limit) {
+  return await launchesModel
+    .find({}, { _id: 0, __v: 0 })
+    .sort({ flightNumber: 1 })
+    .skip(skip)
+    .limit(limit);
 }
 
 async function addNewLaunch(launch) {
