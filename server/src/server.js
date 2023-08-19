@@ -1,5 +1,7 @@
 // package imports
 const http = require("http");
+// config set
+require("dotenv").config();
 // custom imports
 const app = require("./app");
 const { loadPlanetsData } = require("./models/planets.model.js");
@@ -15,7 +17,7 @@ const server = http.createServer(app);
 async function startServer() {
   await connectToMongo();
   await loadPlanetsData();
-  await loadSpacexLaunches()
+  await loadSpacexLaunches();
   server.listen(PORT, () => console.log(`Node server listening on ${PORT}`));
 }
 
