@@ -1,7 +1,6 @@
 // package imports
 const http = require("http");
-// config set
-require("dotenv").config();
+
 // custom imports
 const app = require("./app");
 const { loadPlanetsData } = require("./models/planets.model.js");
