@@ -68,5 +68,8 @@ describe("Testing launches api", () => {
       expect(res.body).toStrictEqual({ error: "Invalid Launch date" });
     });
   });
-  afterAll(async () => await disconnectMongo());
+  afterAll(async () => {
+    await disconnectMongo();
+    done();
+  });
 });
