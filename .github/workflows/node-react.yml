@@ -1,0 +1,17 @@
+name: Node React CI/CD
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: node-setup
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+      - run: npm install
+      - run: npm run build --prefix client
