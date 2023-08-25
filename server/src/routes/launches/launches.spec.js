@@ -3,8 +3,8 @@ const app = require("../../app");
 const { connectToMongo, disconnectMongo } = require("../../services/mongo");
 const { loadPlanetsData } = require("../../models/planets.model.js");
 
-describe("Testing launches api", (done) => {
-  beforeAll(async () => {
+describe("Testing launches api", () => {
+  beforeAll(async (done) => {
     await connectToMongo();
     await loadPlanetsData();
     done();
