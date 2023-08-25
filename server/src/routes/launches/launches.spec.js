@@ -7,7 +7,7 @@ describe("Testing launches api", () => {
   beforeAll(async (done) => {
     await connectToMongo();
     await loadPlanetsData();
-    done();
+    // done();
   });
   describe("get launches api", () => {
     test("It shouldrespond with 200", async () => {
@@ -71,6 +71,6 @@ describe("Testing launches api", () => {
   });
   afterAll(async (done) => {
     await disconnectMongo();
-    done();
+    // done();
   });
 });
