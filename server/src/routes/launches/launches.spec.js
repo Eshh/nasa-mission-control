@@ -70,6 +70,6 @@ describe("Testing launches api", () => {
   });
   afterAll(async () => {
     await disconnectMongo();
-    done();
+    // done();
   });
 });
