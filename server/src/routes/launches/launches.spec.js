@@ -3,7 +3,7 @@ const app = require("../../app");
 const { connectToMongo, disconnectMongo } = require("../../services/mongo");
 const { loadPlanetsData } = require("../../models/planets.model.js");
 
-describe("Testing launches api", () => {
+describe("Testing launches api", (done) => {
   beforeAll(async () => {
     await connectToMongo();
     await loadPlanetsData();
@@ -69,7 +69,7 @@ describe("Testing launches api", () => {
       expect(res.body).toStrictEqual({ error: "Invalid Launch date" });
     });
   });
-  afterAll(async () => {
+  afterAll(async (done) => {
     await disconnectMongo();
     done();
   });
