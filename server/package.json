@@ -20,7 +20,6 @@
     "express": "^4.18.2",
     "mongoose": "^7.4.3",
     "morgan": "^1.10.0",
-    "nasa-mission-control": "file:..",
     "save-dev": "^0.0.1-security",
     "supertest": "^6.3.3"
   },
